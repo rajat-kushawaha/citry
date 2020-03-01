@@ -9,7 +9,7 @@ describe('GET', function() {
       .expect('Content-Type', 'text/html')
       .expect('Content-Length', '801')
       .expect('Date', /./)
-      .expect(/Flower Catlog/, done);
+      .expect(/Flower Catalog/, done);
   });
   it('validFilePath should give the file', function(done) {
     request((req, res) => app.serve(req, res))
