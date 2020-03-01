@@ -1,0 +1,30 @@
+{
+  "name": "flower-catalog-bugdriver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "export DATA_STORE=/Users/step21/rajatwork/JavaScript/flower-catalog-bugdriver/test/testDataFile/commentsData.json;nyc mocha",
+    "start": "export DATA_STORE=/Users/step21/rajatwork/JavaScript/flower-catalog-bugdriver/public/data/commentsData.json;node server.js 4000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/step-batch-7/flower-catalog-bugdriver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/step-batch-7/flower-catalog-bugdriver/issues"
+  },
+  "homepage": "https://github.com/step-batch-7/flower-catalog-bugdriver#readme",
+  "devDependencies": {
+    "mocha": "^7.0.1",
+    "nyc": "^15.0.0",
+    "sinon": "^8.1.1",
+    "supertest": "^4.0.2"
+  }
+}

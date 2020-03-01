@@ -1,0 +1,47 @@
+.heading {
+  color: rgb(245, 165, 51);
+  text-align: right;
+  padding-bottom: 12px;
+  border-bottom: 2px solid black;
+}
+
+#img_freshorigins {
+  border: 1px solid black;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+}
+
+.waterJugBox {
+  margin-left: 70px;
+}
+
+.headingFlower {
+  text-align: center;
+}
+
+.flowerDescriptionBox {
+  padding-left: 4px;
+}
+
+.headingGuestBook {
+  margin-right: 200px;
+  color: rgb(245, 165, 51);
+  text-align: right;
+}
+
+.commentTable,
+th,
+tr,
+td {
+  border: 1px solid black;
+  text-align: left;
+  border-collapse: collapse;
+  padding: 4px;
+}
+
+table {
+  width: 60%;
+}
