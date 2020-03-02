@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "export DATA_STORE=/Users/step21/rajatwork/JavaScript/flower-catalog-bugdriver/test/testDataFile/commentsData.json;nyc mocha",
+    "test": "export DATA_STORE=/Users/step21/rajatwork/JavaScript/flower-catalog-bugdriver/test/testDataFile/commentsData.json;nyc --reporter html mocha",
     "start": "export DATA_STORE=/Users/step21/rajatwork/JavaScript/flower-catalog-bugdriver/public/data/commentsData.json;node server.js 4000"
   },
   "repository": {

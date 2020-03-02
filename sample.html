@@ -1,0 +1,65 @@
+    <section class="suite">
+      <h1>GET</h1>
+      <dl>
+        <dt class="error">&#x27;/&#x27; should give index.html</dt>
+        <dd class="error"><pre><code>request((req, res) =&#x3E; app.serve(req, res))
+  .get(&#x27;/&#x27;)
+  .expect(200)
+  .expect(&#x27;Content-Type&#x27;, &#x27;text/html&#x27;)
+  .expect(&#x27;Content-Length&#x27;, &#x27;801&#x27;)
+  .expect(&#x27;Date&#x27;, /./)
+  .expect(/Flower Cataog/, done);</code></pre></dd>
+        <dd class="error">Error: expected body &#x27;&#x3C;!DOCTYPE html&#x3E;\n&#x27; +
+  &#x27;&#x3C;html lang=&#x22;en&#x22;&#x3E;\n&#x27; +
+  &#x27;  &#x3C;head&#x3E;\n&#x27; +
+  &#x27;    &#x3C;meta charset=&#x22;UTF-8&#x22; /&#x3E;\n&#x27; +
+  &#x27;    &#x3C;title&#x3E;flower Catalog&#x3C;/title&#x3E;\n&#x27; +
+  &#x27;    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;./css/style.css&#x22; /&#x3E;\n&#x27; +
+  &#x27;    &#x3C;script src=&#x22;./scripts/index.js&#x22;&#x3E;&#x3C;/script&#x3E;\n&#x27; +
+  &#x27;  &#x3C;/head&#x3E;\n&#x27; +
+  &#x27;  &#x3C;body onload=&#x22;main()&#x22;&#x3E;\n&#x27; +
+  &#x27;    &#x3C;h3 class=&#x22;heading&#x22;&#x3E;Flower Catalog&#x3C;/h3&#x3E;\n&#x27; +
+  &#x27;    &#x3C;div class=&#x22;box&#x22;&#x3E;\n&#x27; +
+  &#x27;      &#x3C;div&#x3E;\n&#x27; +
+  &#x27;        &#x3C;img src=&#x22;./images/freshorigins.jpg&#x22; id=&#x22;img_freshorigins&#x22; /&#x3E;\n&#x27; +
+  &#x27;      &#x3C;/div&#x3E;\n&#x27; +
+  &#x27;      &#x3C;div class=&#x22;linkBox&#x22;&#x3E;\n&#x27; +
+  &#x27;        &#x3C;ul&#x3E;\n&#x27; +
+  &#x27;          &#x3C;li&#x3E;&#x3C;a href=&#x22;abeliophyllum.html&#x22;&#x3E;Abeliophyllum&#x3C;/a&#x3E;&#x3C;/li&#x3E;\n&#x27; +
+  &#x27;          &#x3C;li&#x3E;&#x3C;a href=&#x22;agerantum.html&#x22;&#x3E;Ageratum&#x3C;/a&#x3E;&#x3C;/li&#x3E;\n&#x27; +
+  &#x27;        &#x3C;/ul&#x3E;\n&#x27; +
+  &#x27;        &#x3C;div class=&#x22;waterJugBox&#x22; id=&#x22;waterJugBox&#x22;&#x3E;\n&#x27; +
+  &#x27;          &#x3C;img src=&#x22;./images/animated-flower-image-0021.gif&#x22; /&#x3E;\n&#x27; +
+  &#x27;        &#x3C;/div&#x3E;\n&#x27; +
+  &#x27;        &#x3C;a href=&#x22;./guestBook.html&#x22;&#x3E;Guest Book&#x3C;/a&#x3E;\n&#x27; +
+  &#x27;      &#x3C;/div&#x3E;\n&#x27; +
+  &#x27;    &#x3C;/div&#x3E;\n&#x27; +
+  &#x27;  &#x3C;/body&#x3E;\n&#x27; +
+  &#x27;&#x3C;/html&#x3E;\n&#x27; to match /Flower Cataog/</dd>
+        <dt>validFilePath should give the file</dt>
+        <dd><pre><code>request((req, res) =&#x3E; app.serve(req, res))
+  .get(&#x27;/agerantum.html&#x27;)
+  .expect(200)
+  .expect(&#x27;Content-Type&#x27;, &#x27;text/html&#x27;)
+  .expect(&#x27;Content-Length&#x27;, &#x27;1352&#x27;)
+  .expect(&#x27;Date&#x27;, /./)
+  .expect(/Agerantum/, done);</code></pre></dd>
+        <dt>guestBook.html should give dynamic guestBook</dt>
+        <dd><pre><code>request((req, res) =&#x3E; app.serve(req, res))
+  .get(&#x27;/guestBook.html&#x27;)
+  .expect(200)
+  .expect(&#x27;Content-Type&#x27;, &#x27;text/html&#x27;)
+  .expect(&#x27;Date&#x27;, /./)
+  .expect(/Guest Book/, done);</code></pre></dd>
+        <dt>should give NOT FOUND response for nonExisting file</dt>
+        <dd><pre><code>request((req, res) =&#x3E; app.serve(req, res))
+  .get(&#x27;/badfile&#x27;)
+  .expect(404, done);</code></pre></dd>
+        <dt>should redirect guestbook and save comments</dt>
+        <dd><pre><code>request((req, res) =&#x3E; app.serve(req, res))
+  .post(&#x27;/guestBookPost&#x27;)
+  .send(&#x27;name=testname&#x26;comment=testcomment&#x27;)
+  .expect(303)
+  .expect(&#x27;location&#x27;, &#x27;/guestBook.html&#x27;, done);</code></pre></dd>
+      </dl>
+    </section>
