@@ -33,11 +33,4 @@ describe('GET', function() {
       .get('/badfile')
       .expect(404, done);
   });
-  it('should redirect guestbook and save comments', function(done) {
-    request((req, res) => app.serve(req, res))
-      .post('/guestBookPost')
-      .send('name=testname&comment=testcomment')
-      .expect(303)
-      .expect('location', '/guestBook.html', done);
-  });
 });
